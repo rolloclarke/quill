@@ -1,0 +1,80 @@
+body {
+	counter-reset:scenenum;
+	
+	-webkit-font-feature-settings: "kern";
+	font-feature-settings: "kern";
+	font-kerning: normal;
+	-webkit-font-variant-ligatures: common-ligatures;
+	font-variant-ligatures: common-ligatures;
+}
+
+.title-page  {
+	text-align:center;
+}
+
+.title-page .authors {
+	white-space:pre-wrap;
+}
+
+.dialogue, .action {
+	white-space:pre-wrap;
+}
+
+.page-break {
+	margin:1em 0px;
+	border-top:1px solid #bbb;
+	height:1px;
+}
+
+.scene:before {
+	counter-increment:scenenum;
+	/*content: "Scene " counter(scenenum) ". ";*/
+}
+
+@media print {
+
+	body {
+		background:none;
+		font-size:1em;
+		overflow:visible;
+		padding:0px;
+	}
+	
+	@page {
+		margin: 0.8in 0.8in 0.8in 0.8in;
+		size:A4;
+		@top-center {
+			content: counter(page);
+		}
+	} 
+	
+	#wrapper {
+		width:100%;
+	}
+	
+	.script {
+		border:none;
+		background:white;
+		line-height:normal;
+	}
+	
+	.page-break {
+		display:block;
+		page-break-after:always;
+		border:none;
+		height:0px;
+		margin:0px;
+	}
+	
+	.act {page-break-after: avoid;}
+	.scene {page-break-after: avoid;}
+	.character {page-break-after: avoid;}
+	.dialogue {
+		page-break-before: avoid;
+		orphans:3;
+		widows:2;
+	}
+	
+
+
+}

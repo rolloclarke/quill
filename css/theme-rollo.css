@@ -1,0 +1,49 @@
+.script {
+	font-family:'Charter';
+	line-height:1.4em;
+}
+
+/* character near the middle left aligned */
+.character {
+	margin-left:40%;
+	margin-top:1em;
+	font-weight:bold;
+}
+
+/* narrow dialogue for notes */
+.dialogue {
+	white-space:pre-wrap;
+	margin:0px 16%;
+}
+
+/* actions all italic and in square brackets */
+.action {
+	font-weight:normal;
+	font-style:italic;
+}
+
+div.action {
+	margin-top:1em;
+	margin-bottom:1em;
+	margin-left:8%;
+}
+
+.action::before {
+	content:'[';
+	font-style:normal;
+}
+
+.action::after {
+	content:']';
+	font-style:normal;
+}
+
+span.action::before {
+	content:'(';
+	font-style:normal;
+}
+
+span.action::after {
+	content:')';
+	font-style:normal;
+}

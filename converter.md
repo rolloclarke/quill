@@ -33,7 +33,7 @@ main_menu: c
 	</div>
 </div>
 </div>
-<script src="/js/quillex.js"></script>
+<script src="{{ "/js/quillex.js" | prepend: site.baseurl }}"></script>
 <script>
 	var source = document.getElementById("source");
 	var renderbox = document.getElementById("renderbox");
@@ -78,7 +78,7 @@ main_menu: c
   
   function loadTheme() {
   	  var url = "/css/" + themechooser.value;
-	  iframe.contentDocument.head.innerHTML = '<link rel="stylesheet" href="/css/theme-default.css"/>\n<link rel="stylesheet" href="' + url + '"/>';
+	  iframe.contentDocument.head.innerHTML = '<link rel="stylesheet" href="{{ "/css/theme-default.css" | prepend: site.baseurl }}"/>\n<link rel="stylesheet" href="{{ site.baseurl }}/css/' + url + '"/>';
 	  resizeIframe();
   }
   

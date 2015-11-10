@@ -105,7 +105,7 @@ var Quillex = function() {
 			.replace(regex.bold, '<strong>$1</strong>') /* bold emphasis */
 			.replace(regex.italic, '<em>$1</em>') /* italic emphasis */
 			.replace(regex.underline, '<u>$1</u>') /* underline  */
-			;//.replace(/\>\s*\</g, '>\<');
+			.replace(/(\/div\>)\s*(\<)/g, '$1$2');
 			
 		// turn hyphens into dashes
 		if (options && options.doubleHyphenToEnDash) text = text.replace(/--/g, '–');

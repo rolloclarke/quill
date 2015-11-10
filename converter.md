@@ -78,7 +78,7 @@ main_menu: c
   
   function loadTheme() {
   	  var url = "/css/" + themechooser.value;
-	  iframe.contentDocument.head.innerHTML = '<link rel="stylesheet" href="{{ "/css/theme-default.css" | prepend: site.baseurl }}"/>\n<link rel="stylesheet" href="{{ site.baseurl }}' + url + '"/>';
+	  iframe.contentDocument.head.innerHTML = '<link rel="stylesheet" href="{{ site.baseurl }}' + url + '"/>';
 	  resizeIframe();
   }
   

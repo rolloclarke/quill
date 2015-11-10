@@ -5,15 +5,16 @@ permalink: /syntax/
 main_menu: b
 ---
 
+## Syntax
+
 ### Act headings
 
 Act headings are single lines starting with a hash. There should be a blank line above and below.
 
     # Act One
-{:.light}
 
 ### Scene headings
-Like act headings, but they start with a single dot (a full stop, or period if you will). There should be a blank line above and below.
+Like act headings, but they start with a single dot. There should be a blank line above and below.
     
     .Scene 2. The Beginning
 

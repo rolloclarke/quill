@@ -1,0 +1,73 @@
+---
+---
+@charset "utf-8";
+
+
+@import url('http://brick.a.ssl.fastly.net/Linux+Libertine:400,700,400i,700i');
+
+@import "theme-default";
+
+body {
+	font-family:'Linux Libertine',Georgia, sans-serif;
+	line-height:1.4;
+}
+
+.title-page h1 {
+	font-size:3em;
+}
+
+h2.act {
+	font-weight:normal;
+	font-style:italic;
+	font-size:3em;
+	margin-top:1em;
+}
+
+h2.scene {
+	font-size:1.6em;
+	margin-top:2em;
+}
+
+.character {
+	width:24%;
+	margin-top:1em;
+	margin-right:2%;
+	display:inline-block;
+	font-weight:bold;
+	text-align:right;
+}
+
+.character::after {
+	/*content:':';*/
+}
+
+.dialogue {
+	margin-top:1em;
+	margin-left:26%;
+}
+/* 480 = 140 + 12 + 328*/
+.character + .dialogue {
+	width:74%;
+	margin-left:0px;
+	display:inline-block;
+	vertical-align:top;
+}
+
+div.action {
+	margin-top:1em;
+}
+
+.action, .character .action, .dialogue .action {
+	font-style:italic;
+	font-weight:normal;
+}
+
+.character .action:before, .dialogue .action:before {
+	content:'(';
+	font-style:normal;
+}
+
+.character .action:after, .dialogue .action:after {
+	content:')';
+	font-style:normal;
+}

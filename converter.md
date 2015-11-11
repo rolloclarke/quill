@@ -83,8 +83,11 @@ main_menu: c
   }
   
   function resizeIframe() {
-  	iframe.style.height = '300px';
-	iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+  	//iframe.style.height = '300px';
+	var div = iframe.contentWindow.document.body.children[0];
+	if (div) {
+		iframe.style.height = div.scrollHeight + 'px';
+	}
   }
   // Setup the dnd listeners
   // var dropZone = document.getElementById('drop-zone');
@@ -129,4 +132,5 @@ main_menu: c
   options.addEventListener('click', quillIt, false);
   loadTheme();
   quillIt();
+  setInterval(resizeIframe, 1000);
 </script>

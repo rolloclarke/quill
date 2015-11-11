@@ -6,26 +6,30 @@ main_menu: c
 ---
 <div class="full-width">
 <div id="converter">
-	<div class="buttons">
-		<label>Output Style 
-			<select id="themechooser">
-				<option value='theme-classic.css'>Classic</option>
-				<option value='theme-faber.css'>Book</option>
-				<option value='theme-bbc.css'>BBC</option>
-			</select>
-			<button id="button-raw">Raw HTML</button>
-			<button id="button-print">Print</button>
-		</label>
-	</div>
 	<div class="flex">
 		<div id="sources" class="col">
-			<!--<div id="drop-zone">Drop file here</div>-->
-			<textarea id="source" rows="3" placeholder="... drop file here, or start typing" >{% include example.txt %}</textarea>
-			<div id="options">
-				<label>Smart Quotes <input id="optionSmartQuotes" type="checkbox" /></label>
+			<div class="buttons">
+				<input type="file" id="fileinput">
+				<button id="loadfile">Load file</button>
 			</div>
+			<textarea id="source" rows="3" placeholder="... drop file here, or start typing" >{% include example.txt %}</textarea>
 		</div>
 		<div id="renderwrapper">
+			<div class="buttons">
+				<span id="options">
+					<label>Smart Quotes <input id="optionSmartQuotes" type="checkbox" /></label>
+				</span>
+				<label>Style 
+					<select id="themechooser">
+						<option value='theme-classic.css'>Classic</option>
+						<option value='theme-bbc.css'>BBC</option>
+						<option value='theme-book.css'>Book</option>
+						<option value='theme-book-compressed.css'>Book (Compressed)</option>
+					</select>
+					<button id="button-raw">Raw HTML</button>
+					<button id="button-print">Print</button>
+				</label>
+			</div>
 			<div id="renderbox" >
 				<iframe id="iframe"></iframe>
 			</div>
@@ -44,11 +48,13 @@ main_menu: c
 	var buttonPrint = document.getElementById('button-print');
 	var options = document.getElementById('options');
 	var optionSmartQuote = document.getElementById('optionSmartQuote');
+	var buttonloadfile = document.getElementById('loadfile');
+	var fileinput = document.getElementById('fileinput');
 
 	function handleDragOver(evt) {
 		evt.stopPropagation();
 		evt.preventDefault();
-		evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+		//evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
 		evt.target.className = (evt.type == "dragover" ? "hover" : "");
 	}
 
@@ -59,6 +65,15 @@ main_menu: c
 
 		var file = files[0];
 
+		processFile(file);
+	}
+	
+	function handleFile(evt) {
+		var file = fileinput.files[0];
+		processFile(file);
+	}
+	
+	function processFile(file) {
 		var reader = new FileReader();
 
 		// Closure to capture the file information.
@@ -73,20 +88,29 @@ main_menu: c
 
 		// Read in the image file as a data URL.
 		reader.readAsText(file);
-
 	}
   
   function loadTheme() {
   	  var url = "/css/" + themechooser.value;
-	  iframe.contentDocument.head.innerHTML = '<link rel="stylesheet" href="{{ site.url}}{{ site.baseurl }}' + url + '"/>';
+	  var href = "{{ site.baseurl }}" + url;
+	  
+	  if (iframe.contentDocument.head.children.length > 0) {
+	  	iframe.contentDocument.head.children[0].href = href;
+	  } else {
+		  var link = iframe.contentDocument.createElement('link');
+		  link.rel = "stylesheet";
+		  link.href = href;
+		  iframe.contentDocument.head.appendChild(link)
+	  }
+
+	  //iframe.contentDocument.head.innerHTML = '<link rel="stylesheet" href="{{ site.baseurl }}' + url + '"/>';
 	  resizeIframe();
   }
   
   function resizeIframe() {
-  	//iframe.style.height = '300px';
 	var div = iframe.contentWindow.document.body.children[0];
 	if (div) {
-		iframe.style.height = div.scrollHeight + 'px';
+		iframe.style.height = (div.scrollHeight + 100) + 'px';
 	}
   }
   // Setup the dnd listeners
@@ -127,10 +151,17 @@ main_menu: c
   buttonPrint.addEventListener('click', function() {
   	iframe.contentWindow.print();
   }, false);
+  
+  buttonloadfile.addEventListener('click', function() {
+	  fileinput.click();
+  }, false);
+  
+  fileinput.addEventListener('change', handleFile, false);
 
   source.addEventListener('input', quillIt, false);
   options.addEventListener('click', quillIt, false);
   loadTheme();
   quillIt();
-  setInterval(resizeIframe, 1000);
+  
+  //setInterval(resizeIframe, 1000);
 </script>

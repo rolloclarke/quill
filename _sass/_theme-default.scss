@@ -42,6 +42,10 @@ body {
 		padding:0px;
 	}
 	
+	.title-page {
+		margin-top:20pt;
+	}
+	
 	@page {
 		margin: 0.8in 0.8in 0.8in 0.8in;
 		size:A4;
@@ -52,12 +56,6 @@ body {
 	
 	#wrapper {
 		width:100%;
-	}
-	
-	.script {
-		border:none;
-		background:white;
-		line-height:normal;
 	}
 	
 	.page-break {

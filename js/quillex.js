@@ -95,7 +95,7 @@ var Quillex = function() {
 			.replace(regex.carriage, '')
 			.replace(regex.spaces, '\n\n')
 			.replace(regex.act, '\n\<h2 class="act">$1\</h2>\n\n') 
-			.replace(regex.scene, '\n<h2 class="scene">$1</h2>\n\n') 
+			.replace(regex.scene, '<h2 class="scene">$1</h2>\n\n') 
 			.replace(regex.forcedcharacter, '\n\n<div class="character">$1</div>')
 			.replace(regex.character, '\n\n<div class="character">$1</div>')
 			.replace(regex.actionmulti, '\n\n<div class="action">$1</div>\n\n') 
@@ -105,7 +105,8 @@ var Quillex = function() {
 			.replace(regex.bold, '<strong>$1</strong>') /* bold emphasis */
 			.replace(regex.italic, '<em>$1</em>') /* italic emphasis */
 			.replace(regex.underline, '<u>$1</u>') /* underline  */
-			.replace(/(\/div\>)\s*(\<)/g, '$1$2');
+			.replace(/(<\/div\>|\<\/h2>\n|^)\s*(\<|$)/g, '$1$2')
+			.replace(/(<div class="character">[^<]*?<\/div>)(?!<div class="dialogue">)/g,'$1<div class="dialogue"></div>');
 			
 		// turn hyphens into dashes
 		if (options && options.doubleHyphenToEnDash) text = text.replace(/--/g, '–');

@@ -1,0 +1,13 @@
+---
+layout: page
+title: Examples
+permalink: /examples/
+alt_menu: b
+---
+
+## Examples
+
+Here are some example scripts written in quill.
+
+### Hamlet
+[hamlet.quill.txt](hamlet.quill.txt)

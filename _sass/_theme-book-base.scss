@@ -1,0 +1,68 @@
+
+@import "theme-default";
+$spacing-left:     21px;
+body {
+	font-family:'Hoefler Text',Georgia, sans-serif;
+	line-height:1.4;
+	margin-left:$spacing-left;
+}
+
+.title-page h1 {
+	font-size:2em;
+	margin-left:-$spacing-left;
+}
+
+.act {
+	font-size:3em;
+	font-weight:normal;
+	font-style:italic;
+	margin-left:-$spacing-left;
+}
+
+.scene {
+	font-size:1.4em;
+	margin-left:-$spacing-left;
+}
+
+.character {
+	margin-left:-$spacing-left;
+	margin-right:1em;
+	margin-top:1em;
+	display:inline-block;
+	font-weight:bold;
+	font-size:0.9em;
+}
+
+.character + .dialogue {
+	display:inline;
+}
+
+.dialogue {
+	display:block;
+	margin-top:1em;
+}
+
+.dialogue:after {
+	content:'';
+	display:block;
+}
+
+.dialogue .action:before, .character .action:before {
+	content: '(';
+	font-style:normal;
+}
+
+.dialogue .action:after, .character .action:after {
+	content: ')';
+	font-style:normal;
+}
+
+.action {
+	font-style:italic;
+	font-weight:normal;
+}
+
+div.action {
+	margin-top:1em;
+	margin-left:3em;
+}

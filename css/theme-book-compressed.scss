@@ -1,0 +1,26 @@
+---
+---
+@charset "utf-8";
+
+@import "theme-book-base";
+
+h2 {
+	margin-bottom:0px;
+}
+
+div.character, div.dialogue, div.action {
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+div.action {
+	margin-left:-$spacing-left;
+}
+
+div.character {
+	font-weight:normal;
+}
+
+div.character::after {
+	content:':';
+}

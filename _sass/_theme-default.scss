@@ -6,7 +6,6 @@ body {
 	font-kerning: normal;
 	-webkit-font-variant-ligatures: common-ligatures;
 	font-variant-ligatures: common-ligatures;
-	margin:0px;
 	padding:0px;
 	
 	font-size:2vw;
@@ -43,6 +42,7 @@ body {
 		overflow:visible;
 		padding:0px;
 		font-size:100%;
+		margin:1.8cm;
 	}
 	
 	.title-page {
@@ -50,7 +50,7 @@ body {
 	}
 	
 	@page {
-		margin: 0.8in 0.8in 0.8in 0.8in;
+		//margin: 1.8cm;
 		size:A4;
 		@top-center {
 			content: counter(page);

@@ -2,10 +2,9 @@
 ---
 @charset "utf-8";
 
+@import "theme-default";
 
 @import url('//brick.a.ssl.fastly.net/Linux+Libertine:400,700,400i,700i');
-
-@import "theme-default";
 
 body {
 	font-family:'Linux Libertine',Georgia, sans-serif;

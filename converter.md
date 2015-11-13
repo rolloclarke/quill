@@ -17,7 +17,7 @@ main_menu: c
 		<div id="renderwrapper">
 			<div class="buttons">
 				<span id="options">
-					<label>Smart Quotes <input id="optionSmartQuotes" type="checkbox" /></label>
+					<label>Smart Quotes <input id="optionSmartQuotes" type="checkbox" checked/></label>
 				</span>
 				<label>Style 
 					<select id="themechooser">
@@ -27,6 +27,7 @@ main_menu: c
 						<option value='theme-book-compressed.css'>Book (Compressed)</option>
 					</select>
 					<button id="button-raw">Raw HTML</button>
+					<button id="button-html">HTML</button>
 					<button id="button-print">Print</button>
 				</label>
 			</div>
@@ -45,6 +46,7 @@ main_menu: c
 	var themecss = document.getElementById('theme');
 	var iframe = document.getElementById('iframe');
 	var buttonRaw = document.getElementById('button-raw');
+	var buttonHTML = document.getElementById('button-html');
 	var buttonPrint = document.getElementById('button-print');
 	var options = document.getElementById('options');
 	var optionSmartQuote = document.getElementById('optionSmartQuote');
@@ -146,6 +148,20 @@ main_menu: c
   
   buttonRaw.addEventListener('click', function() {
   	window.open('data:text/plain;charset=utf-8,' + encodeURIComponent(iframe.contentDocument.body.innerHTML));
+  }, false);
+  
+  buttonHTML.addEventListener('click', function() {
+	var txt = "";
+	txt += "<!DOCTYPE html>\n";
+	txt += '<html><head><style>';
+	var sheet = iframe.contentDocument.styleSheets[0];
+	for (var i = 0; i < sheet.rules.length; i++) {
+		txt += '\n' + sheet.rules[i].cssText;
+	}
+	txt += "</style></head>";
+	txt += iframe.contentDocument.body.outerHTML;
+	txt += "</html>";
+  	window.open('data:text/html;charset=utf-8,' + encodeURIComponent(txt));
   }, false);
   
   buttonPrint.addEventListener('click', function() {

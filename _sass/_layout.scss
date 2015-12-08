@@ -17,13 +17,9 @@
 }
 
 .site-title {
-    font-size: 26px;
-    font-weight: 300;
-    line-height: 56px;
-    letter-spacing: -1px;
+    font-size: 1.5em;
     margin-bottom: 0;
 	display:block;
-	font-weight:700;
 	font-style:italic;
 	//text-shadow:2px 2px 0 white, 3px 3px 0 #ddd;
 	box-shadow:none;
@@ -227,7 +223,7 @@ header .wrapper {
     margin-bottom: $spacing-unit;
 
     h2 {
-        font-size: 32px;
+        font-size: 1.9em;
 		color:#161616;
     }
 
@@ -254,9 +250,10 @@ header .wrapper {
 	}
 	
 	pre {
-		margin:1em -3em;
-		padding:0.8em 3em;
+		margin:1em -38px;
+		padding:0.8em 38px;
 		//background:lighten($brand-color-2, 35%);
+		line-height:1.3;
 		
 	    @include media-query($on-palm) {
         	margin-right: -$spacing-unit/2;

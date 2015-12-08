@@ -23,10 +23,6 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
-	
-	@include media-query($on-palm) {
-		font-size:22px;
-	}
 }
 
 
@@ -163,7 +159,7 @@ pre {
  * Wrapper
  */
 .wrapper {
-    width: 700px;
+    width: 790px;
     margin-right: auto;
     margin-left: auto;
     padding-right: $spacing-unit;
@@ -172,7 +168,7 @@ pre {
 }
 
 .post {
-	width:500px;
+	width:590px;
 }
 
 

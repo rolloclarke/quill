@@ -5,13 +5,25 @@ permalink: /
 main_menu: a
 ---
 
-Quill is a **very simple** plain text format for playwriting. Playwrights and theatre people should use it because:
+##Quill
 
-* It's free, in every sense.
+Quill is a tool for playwrights or theatre script editors.
+
+Really it is two things: a **very simple** plain text format for playwriting, and an online [conversion tool](converter) that allows you to print a decent looking script.
+
+Playwrights and theatre people should use it because:
+
+* It's free, in every sense
+* It's quick to learn
 * Plain text can be edited on any computer easily
 * The plain text itself is nice and readable
 * Sending Word or Pages documents around is a ridiculous way to live
-* You can use the [converter](converter) to print an even nicer looking script
+* It prevents all the hassle of messed up formatting
+
+Playwrights and theatre people should **not** use it because:
+
+* Perhaps editing plain text is contrary to the artistic temperament
+* It's quick to learn, but not instant
  
 ###It looks like this:
   
@@ -30,11 +42,8 @@ Quill is a **very simple** plain text format for playwriting. Playwrights and th
 	ROLLO:
 	So this is what Quill looks like.
 	
-	BECKETT:
-	What's the point? I had a typewriter, but I still wrote plays by hand.
-	
 	SHAKESPEARE:
-	I don't like it either. Give me a real quill any day.
+	I don't like it. Give me a real quill any day.
 	
 	[ROLLO exits, exasperated]
 {:.wrap}

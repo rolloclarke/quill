@@ -4,10 +4,16 @@
 @import url('http://brick.a.ssl.fastly.net/Latin+Modern+Mono:300,400');
 .site-header {
     //border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
 
     // Positioning context for the mobile navigation icon
     position: relative;
+}
+
+#site-stuff {
+	position:absolute;
+	right:0px;
+	width:150px;
+	padding-top:30px;
 }
 
 .site-title {
@@ -17,12 +23,11 @@
     letter-spacing: -1px;
     margin-bottom: 0;
 	display:block;
-	text-align:center;
 	font-weight:700;
 	font-style:italic;
-	text-shadow:2px 2px 0 white, 3px 3px 0 #ddd;
+	//text-shadow:2px 2px 0 white, 3px 3px 0 #ddd;
 	box-shadow:none;
-	float:left;
+	font-family:'EB Garamond',$mod-font-family;
 	
     &,
     &:visited {
@@ -30,21 +35,25 @@
     }
 }
 
+.space-above {
+	margin-top:1em;
+}
+
+header .wrapper {
+	position:relative;
+}
+
 .site-nav {
     line-height: 56px;
-	text-align:right;
 
     .menu-icon {
         display: none;
     }
 
     .page-link {
+		display:block;
         line-height: $base-line-height;
 
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
     }
 	/*
     @include media-query($on-palm) {
@@ -103,7 +112,7 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    //border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 	font-size:0.8em;
 }
@@ -144,6 +153,7 @@
     width:         calc(45% - (#{$spacing-unit} / 2));
 }
 
+/*
 @include media-query($on-laptop) {
     .footer-col-1,
     .footer-col-2 {
@@ -164,6 +174,7 @@
         width:         calc(100% - (#{$spacing-unit} / 2));
     }
 }
+*/
 
 
 
@@ -210,10 +221,6 @@
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
 }
 
 .post-content {
@@ -221,10 +228,7 @@
 
     h2 {
         font-size: 32px;
-
-        @include media-query($on-laptop) {
-            font-size: 28px;
-        }
+		color:#161616;
     }
 
     h3 {
@@ -235,17 +239,10 @@
 		margin-bottom:1.5em;
 		font-size:1.1em;
 		font-weight:700;
-        @include media-query($on-laptop) {
-            //font-size: 22px;
-        }
     }
 
     h4 {
         font-size: 20px;
-
-        @include media-query($on-laptop) {
-            font-size: 18px;
-        }
     }
 	
 	h3 + p {
@@ -316,15 +313,14 @@
 .full-width {
 	margin-left:calc(-50vw + (#{$content-width} / 2) - #{$spacing-unit});
 	width:100vw;
+	min-width:$content-width;
 	
     @include media-query($content-width) {
         margin-left:-$spacing-unit;
     }
-	
-    @include media-query($on-palm) {
-    	margin-left:calc(-#{$spacing-unit} / 2);
-    }
 }
+
+
 
 #converter {
 	max-width:1250px;
@@ -332,6 +328,16 @@
 	position:relative;
 	margin:0 auto;
 	padding:0px $spacing-unit;
+	
+	#side {
+		width:200px;
+		float:right;
+		font-size:12px;
+	}
+	
+	#main {
+		margin-right:230px;
+	}
 	
 	.flex {
 		display: -ms-flexbox;
@@ -344,9 +350,8 @@
 		text-align:center;
 	}
 	
+	
 	#sources {
-		width:30%;
-		margin-right:1em;
 		
 		#fileinput {
 			display:none;
@@ -358,7 +363,6 @@
 			font-size:0.8em;
 			padding:0.3em;
 			border:1px solid #bbb;
-			min-height:500px;
 		}
 		
 		#drop-zone {
@@ -381,7 +385,7 @@
 	}
 	
 	#renderwrapper {
-		width:70%;
+
 	}
 	
 	#renderbox {
@@ -397,7 +401,7 @@
 		border:none;
 	}
 	
-    @include media-query($on-laptop) {
+    /*@include media-query($on-laptop) {
 		display: block;
 		
 		.flex {
@@ -423,10 +427,6 @@
 		#renderbox {
 			min-height:200px;
 		}
-    }
-	
-	 @include media-query($on-palm) {
-		 padding:0px calc(#{$spacing-unit}/2);
-	 }
+    }*/
 	
 }

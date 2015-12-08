@@ -2,7 +2,7 @@
 layout: page
 title: Examples
 permalink: /examples/
-alt_menu: b
+main_menu: d
 ---
 
 ## Examples

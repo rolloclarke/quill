@@ -1,38 +1,39 @@
 ---
-layout: page
-title: Converter
+layout: converter
+title: Quill → HTML
 permalink: /converter/
-main_menu: c
 ---
 <div class="full-width">
 <div id="converter">
-	<div class="flex">
-		<div id="sources" class="col">
-			<div class="buttons">
-				<input type="file" id="fileinput">
-				<button id="loadfile">Load file</button>
-			</div>
-			<textarea id="source" rows="3" placeholder="... drop file here, or start typing" >{% include example.txt %}</textarea>
+	<div class="zflex">
+		<div id="side">{% capture my_include %}{% include side.md %}{% endcapture %}
+{{ my_include | markdownify }}
 		</div>
-		<div id="renderwrapper">
-			<div class="buttons">
-				<span id="options">
-					<label>Smart Quotes <input id="optionSmartQuotes" type="checkbox" checked/></label>
-				</span>
-				<label>Style 
-					<select id="themechooser">
-						<option value='theme-classic.css'>Classic</option>
-						<option value='theme-bbc.css'>BBC</option>
-						<option value='theme-book.css'>Book</option>
-						<option value='theme-book-compressed.css'>Book (Compressed)</option>
-					</select>
-					<button id="button-raw">Raw HTML</button>
-					<button id="button-html">HTML</button>
-					<button id="button-print">Print</button>
-				</label>
+		<div id="main">
+			<div id="sources" class="col">
+				<input type="file" id="fileinput"><button id="loadfile">Load file</button>
+				<textarea id="source" rows="20" placeholder="... drop file here, or start typing" >{% include example.txt %}</textarea>
 			</div>
-			<div id="renderbox" >
-				<iframe id="iframe"></iframe>
+			<div id="renderwrapper">
+				<div class="buttons">
+					<span id="options">
+						<label>Smart Quotes <input id="optionSmartQuotes" type="checkbox" checked/></label>
+					</span>
+					<label>Style 
+						<select id="themechooser">
+							<option value='theme-classic.css'>Classic</option>
+							<option value='theme-bbc.css'>BBC</option>
+							<option value='theme-book.css'>Book</option>
+							<option value='theme-book-compressed.css'>Book (Compressed)</option>
+						</select>
+						<button id="button-raw">Raw HTML</button>
+						<button id="button-html">HTML</button>
+						<button id="button-print">Print</button>
+					</label>
+				</div>
+				<div id="renderbox" >
+					<iframe id="iframe"></iframe>
+				</div>
 			</div>
 		</div>
 	</div>
